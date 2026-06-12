@@ -1,37 +1,36 @@
 <!doctype html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Espectro Sísmico – NBDS 2023</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
-      rel="stylesheet" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
-    <link rel="stylesheet" href="NBDS2023_Espectro_1.css" />
-    <link rel="stylesheet" href="NBDS2023_Espectro_1.responsive.css" />
-  </head>
 
-  <body>
-    <div class="app">
-      <!-- TOPBAR -->
-      <div class="topbar">
-        <svg class="logo-wave" viewBox="0 0 100 24" fill="none">
-          <polyline
-            points="0,12 15,12 18,3 21,21 24,12 32,12 37,2 40,22 43,12 50,12 57,7 60,17 63,12 70,12 74,5 77,19 80,12 100,12"
-            stroke="#00D4FF"
-            stroke-width="1.4"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            fill="none"
-            opacity=".85" />
-        </svg>
-        <div class="topbar-title">Espectro Sísmico <span>NBDS 2023</span> <span style="color: var(--amber); font-size: 10px">// mariocsi</span></div>
-        <div class="topbar-sub">CNBDS · Bolivia</div>
-      </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Espectro Sísmico – NBDS 2023</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+  <link rel="stylesheet" href="NBDS2023_Espectro_1.css" />
+  <link rel="stylesheet" href="NBDS2023_Espectro_1.responsive.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
 
-    <div class="view">  
+<body>
+  <div class="app">
+    <!-- TOPBAR -->
+    <div class="topbar">
+      <svg class="logo-wave" viewBox="0 0 100 24" fill="none">
+        <polyline
+          points="0,12 15,12 18,3 21,21 24,12 32,12 37,2 40,22 43,12 50,12 57,7 60,17 63,12 70,12 74,5 77,19 80,12 100,12"
+          stroke="#00D4FF" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="none"
+          opacity=".85" />
+      </svg>
+      <div class="topbar-title">Espectro Sísmico <span>NBDS 2023</span> <span
+          style="color: var(--amber); font-size: 10px">// mariocsi</span></div>
+      <div class="topbar-sub">CNBDS · Bolivia</div>
+    </div>
+
+    <div class="view">
       <!-- LEFT PANEL -->
       <div class="panel-l">
         <!-- 1. Amenaza -->
@@ -49,7 +48,8 @@
 
         <!-- 2. Suelo -->
         <div class="card">
-          <div class="card-hdr">Tipo de suelo &nbsp;<span style="color: var(--amber); font-size: 10px">(Tabla 1 &amp; 2)</span>
+          <div class="card-hdr">Tipo de suelo &nbsp;<span style="color: var(--amber); font-size: 10px">(Tabla 1 &amp;
+              2)</span>
           </div>
           <div class="card-body">
             <div class="field">
@@ -67,10 +67,9 @@
 
         <!-- 3. Factor importancia -->
         <div class="card">
-          <div class="card-hdr">Factor de importancia <span class="sym" style="font-size: 10px; margin-left: 4px">Ie</span>&nbsp;<span
-              style="color: var(--amber); font-size: 10px"
-              >(Tabla 5)</span
-            >
+          <div class="card-hdr">Factor de importancia <span class="sym"
+              style="font-size: 10px; margin-left: 4px">Ie</span>&nbsp;<span
+              style="color: var(--amber); font-size: 10px">(Tabla 5)</span>
           </div>
           <div class="card-body">
             <div class="field">
@@ -122,7 +121,8 @@
                   <option value="4.5,4,0.009">Acero – Pórticos Int. RM · R=4.5 · Cd=4 · Δ=0.009</option>
                   <option value="3.5,3,0.008">Acero – Pórticos Ord. RM · R=3.5 · Cd=3 · Δ=0.008</option>
                   <option value="6,5,0.009">Acero – Pórticos Esp. Concén. Arr. · R=6 · Cd=5 · Δ=0.009</option>
-                  <option value="3.25,3.25,0.008">Acero – Pórticos Ord. Concén. Arr. · R=3.25 · Cd=3.25 · Δ=0.008</option>
+                  <option value="3.25,3.25,0.008">Acero – Pórticos Ord. Concén. Arr. · R=3.25 · Cd=3.25 · Δ=0.008
+                  </option>
                   <option value="8,4,0.010">Acero – Pórticos Excén. Arr. · R=8 · Cd=4 · Δ=0.010</option>
                   <option value="3,2.5,0.007">Acero – Perfiles laminados frío · R=3 · Cd=2.5 · Δ=0.007</option>
                 </optgroup>
@@ -137,10 +137,9 @@
 
         <!-- 5. Tau -->
         <div class="card">
-          <div class="card-hdr">Factor topográfico <span class="sym" style="font-size: 10px; margin-left: 4px">τ</span>&nbsp;<span
-              style="color: var(--amber); font-size: 10px"
-              >(Art. 7)</span
-            >
+          <div class="card-hdr">Factor topográfico <span class="sym"
+              style="font-size: 10px; margin-left: 4px">τ</span>&nbsp;<span
+              style="color: var(--amber); font-size: 10px">(Art. 7)</span>
           </div>
           <div class="card-body">
             <div class="tau-row">
@@ -150,7 +149,8 @@
             </div>
             <div class="field" id="tauCW" style="display: none">
               <label>Diferencia de pendientes (I − i)</label>
-              <input type="number" id="iTauD" min="0.40" max="0.90" step="0.01" value="0.60" placeholder="0.40 – 0.90" />
+              <input type="number" id="iTauD" min="0.40" max="0.90" step="0.01" value="0.60"
+                placeholder="0.40 – 0.90" />
             </div>
           </div>
         </div>
@@ -160,21 +160,23 @@
           <div class="card-hdr collapsible" id="fitHeader">
             <span class="chevron">▼</span>
             Irregularidades <span class="sym" style="font-size: 10px; margin-left: 4px">FIT</span>&nbsp;<span
-              style="color: var(--amber); font-size: 10px"
-              >(Art. 16 · Tablas 9 y 10)</span
-            >
+              style="color: var(--amber); font-size: 10px">(Art. 16 · Tablas 9 y 10)</span>
           </div>
           <div class="card-body" id="fitBody" style="display: none">
-            <div style="font-size: 10px; color: var(--dim)">FIT = 1 − ΣIa − ΣIp ≥ 0.50. Marque las irregularidades presentes:</div>
+            <div style="font-size: 10px; color: var(--dim)">FIT = 1 − ΣIa − ΣIp ≥ 0.50. Marque las irregularidades
+              presentes:</div>
             <div class="fit-grid" id="fitGrid"></div>
-            <div id="fitDisplay" style="font-family: var(--mono); font-size: 11px; color: var(--muted); text-align: right">FIT = 1.000</div>
+            <div id="fitDisplay"
+              style="font-family: var(--mono); font-size: 11px; color: var(--muted); text-align: right">FIT = 1.000
+            </div>
           </div>
         </div>
 
         <!-- Buttons -->
         <div style="display: flex; flex-direction: column; gap: 7px">
           <button class="btn-calc" onclick="calculate()">▶ &nbsp;CALCULAR ESPECTRO</button>
-          <button class="btn-csv" id="btnCsv" onclick="downloadCsv()" disabled>⬇ &nbsp;DESCARGAR ESPECTRO EN CSV</button>
+          <button class="btn-csv" id="btnCsv" onclick="downloadCsv()" disabled>⬇ &nbsp;DESCARGAR ESPECTRO EN
+            CSV</button>
         </div>
 
         <!-- Results -->
@@ -189,15 +191,11 @@
       <!-- RIGHT PANEL -->
       <div class="panel-r">
         <div class="zone">
+          <div id="map"></div>
           <div class="zone-lbl">Mapa probabilístico de amenaza sísmica – Bolivia · OSC · PSHBO 475 años</div>
-          <div class="map-viewer" id="mapViewer">
-            <img class="img_map" id="imgMap" src="mapa_de_amenaza_sismica.jpg" alt="Mapa de amenaza sísmica" draggable="false" />
-          </div>
-          <div class="map-controls">
-            <button class="map-btn" id="mapZoomIn" title="Acercar">+</button>
-            <button class="map-btn" id="mapZoomOut" title="Alejar">−</button>
-            <button class="map-btn" id="mapReset" title="Restablecer">⟲</button>
-            <span class="map-zoom-level" id="mapZoomLevel">100%</span>
+          <p class="info-us">Haz clic en el mapa para conocer la aceleración sísmica.</p>
+          <div id="info-panel">
+            <div id="resultado">Cota: <span class="cota-valor">-</span></div>
           </div>
         </div>
         <div class="zone chart-zone">
@@ -208,5 +206,169 @@
     </div>
     <!-- /app -->
     <script src="NBDS2023_Espectro_1.js"></script>
-  </body>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.11.0/proj4.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/georaster/dist/georaster.browser.bundle.min.js"></script>
+    <script src="https://unpkg.com/georaster-layer-for-leaflet/dist/georaster-layer-for-leaflet.min.js"></script>
+
+    <script>
+      // 1. Inicializar Mapa
+      const map = L.map("map").setView([0, 0], 2);
+
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", { attribution: "&copy; OpenStreetMap contributors" }).addTo(map);
+
+      const urlDelGeoTIFF = "mapa.tif";
+      let tiffLayerGlobal = null;
+
+      // 2. Cargar Capa
+      fetch(urlDelGeoTIFF)
+        .then((response) => {
+          if (!response.ok) throw new Error("No se encontró el archivo TIFF.");
+          return response.arrayBuffer();
+        })
+        .then((arrayBuffer) => {
+          parseGeoraster(arrayBuffer).then((georaster) => {
+            tiffLayerGlobal = new GeoRasterLayer({
+              georaster: georaster,
+              opacity: 0.6,
+              resolution: 64,
+              pixelValuesToColorFn: function (values) {
+                const valor = values[0]; // Tomamos el valor de la primera banda
+
+                // Si el píxel es nulo o es el valor "NoData", lo dejamos transparente
+                if (valor === null || isNaN(valor) || valor === georaster.noDataValue) {
+                  return "rgba(0,0,0,0)";
+                }
+
+                // Definimos colores basados en tu rango de 4 a 32
+                // RAMPA DE 16 COLORES (De 4 a 32, pasos de 1.75)
+                // AZULES (Zonas más bajas)
+                if (valor <= 5.75) return "#1a468a"; // Azul oscuro
+                if (valor <= 7.5) return "#2c7bb6"; // Azul medio
+                if (valor <= 9.25) return "#00a6ca"; // Azul claro / Turquesa
+                if (valor <= 11.0) return "#71b9a9"; // Celeste verdoso
+
+                // VERDES (Zonas bajas-medias)
+                if (valor <= 12.75) return "#4ca974"; // Verde azulado
+                if (valor <= 14.5) return "#7ea245"; // Verde bosque
+                if (valor <= 16.25) return "#a2b72a"; // Verde claro
+                if (valor <= 18.0) return "#d2d42a"; // Verde limón
+
+                // AMARILLOS / NARANJAS (Zonas medias-altas)
+                if (valor <= 19.75) return "#fded17"; // Amarillo puro
+                if (valor <= 21.5) return "#f9c221"; // Amarillo oscuro
+                if (valor <= 23.25) return "#f59829"; // Naranja claro
+                if (valor <= 25.0) return "#ec682e"; // Naranja oscuro
+
+                // ROJOS (Zonas más altas)
+                if (valor <= 26.75) return "#e03530"; // Rojo claro
+                if (valor <= 28.5) return "#b61d2d"; // Rojo medio
+                if (valor <= 30.25) return "#8c0d26"; // Rojo oscuro
+                return "#5c001a";
+              },
+            });
+            tiffLayerGlobal.addTo(map);
+            map.fitBounds(tiffLayerGlobal.getBounds());
+            console.log("¡GeoTIFF cargado correctamente!");
+          });
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+          document.getElementById("resultado").innerHTML = `<span style='color:red;'>${error.message}</span>`;
+        });
+
+      // 3. Capturar Clic e Interpolar Coordenadas UTM automáticamente
+
+      // 3. Capturar Clic e Interpolar Coordenadas UTM Zona 20S
+      map.on("click", function (event) {
+        if (!tiffLayerGlobal) return;
+
+        const lat = event.latlng.lat;
+        const lng = event.latlng.lng;
+        const resultadoDiv = document.getElementById("resultado");
+
+        try {
+          const georaster = tiffLayerGlobal.options.georaster;
+
+          // DEFINICIÓN CRUCIAL: Registramos manualmente el EPSG:32720 (UTM 20S) para Proj4
+          proj4.defs("EPSG:32720", "+proj=utm +zone=20 +south +datum=WGS84 +units=m +no_defs");
+
+          // Reproyectamos usando la definición que acabamos de registrar
+          const pt = proj4("EPSG:4326", "EPSG:32720", [lng, lat]);
+          const utmX = pt[0];
+          const utmY = pt[1];
+
+          // Convertimos coordenadas UTM a filas y columnas de píxeles
+          const x = Math.floor(((utmX - georaster.xmin) / (georaster.xmax - georaster.xmin)) * georaster.width);
+          const y = Math.floor(((georaster.ymax - utmY) / (georaster.ymax - georaster.ymin)) * georaster.height);
+
+          // Si cae dentro de la celda del archivo, extraemos el valor
+          if (x >= 0 && x < georaster.width && y >= 0 && y < georaster.height) {
+            const valorCalculado = georaster.values[0][y][x];
+
+            if (valorCalculado !== null && !isNaN(valorCalculado) && valorCalculado !== georaster.noDataValue) {
+              // Formateamos el valor relativo (entre 4 y 32)
+              const cota = valorCalculado.toFixed(2);
+              resultadoDiv.innerHTML = `S0: <span class="cota-valor">${cota}</span>`;
+
+              L.popup().setLatLng(event.latlng).setContent(`<b>S0:</b> ${cota}`).openOn(map);
+            } else {
+              resultadoDiv.innerHTML = `Cota: <span class="cota-valor" style="color:gray;">Sin datos (NoData)</span>`;
+            }
+          } else {
+            resultadoDiv.innerHTML = `Cota: <span class="cota-valor" style="color:gray;">Fuera del mapa</span>`;
+          }
+        } catch (err) {
+          console.error("Error al interceptar la cota:", err);
+          resultadoDiv.innerHTML = `<span style='color:red;'>Error de proyección</span>`;
+        }
+      });
+
+      // 4. Crear la Leyenda de 16 Rangos con sus Etiquetas
+      const leyenda = L.control({ position: "bottomright" });
+
+      leyenda.onAdd = function (map) {
+        const div = L.DomUtil.create("div", "legend");
+
+        // Título de la leyenda
+        div.innerHTML += "<h4>Rango de Valores</h4>";
+
+        // Definimos exactamente los mismos colores y límites que usamos en el TIFF
+        const rangos = [
+          { limite: "4.00 - 5.75", color: "#1a468a" },
+          { limite: "5.75 - 7.50", color: "#2c7bb6" },
+          { limite: "7.50 - 9.25", color: "#00a6ca" },
+          { limite: "9.25 - 11.00", color: "#71b9a9" },
+          { limite: "11.00 - 12.75", color: "#4ca974" },
+          { limite: "12.75 - 14.50", color: "#7ea245" },
+          { limite: "14.50 - 16.25", color: "#a2b72a" },
+          { limite: "16.25 - 18.00", color: "#d2d42a" },
+          { limite: "18.00 - 19.75", color: "#fded17" },
+          { limite: "19.75 - 21.50", color: "#f9c221" },
+          { limite: "21.50 - 23.25", color: "#f59829" },
+          { limite: "23.25 - 25.00", color: "#ec682e" },
+          { limite: "25.00 - 26.75", color: "#e03530" },
+          { limite: "26.75 - 28.50", color: "#b61d2d" },
+          { limite: "28.50 - 30.25", color: "#8c0d26" },
+          { limite: "30.25 - 32.00", color: "#5c001a" },
+        ];
+
+        // Generar el HTML interno con ciclos para cada cuadrito
+        rangos.forEach((item) => {
+          div.innerHTML += `
+                    <div class="legend-item">
+                        <i style="background: ${item.color}"></i> 
+                        <span>${item.limite}</span>
+                    </div>`;
+        });
+
+        return div;
+      };
+
+      // Añadir la leyenda construida al mapa activo
+      leyenda.addTo(map);
+    </script>
+</body>
+
 </html>
