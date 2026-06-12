@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Espectro Sísmico – NBDS 2023</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+    <link rel="stylesheet" href="NBDS2023_Espectro_1.css" />
+    <link rel="stylesheet" href="NBDS2023_Espectro_1.responsive.css" />
+  </head>
+
+  <body>
+    <div class="app">
+      <!-- TOPBAR -->
+      <div class="topbar">
+        <svg class="logo-wave" viewBox="0 0 100 24" fill="none">
+          <polyline
+            points="0,12 15,12 18,3 21,21 24,12 32,12 37,2 40,22 43,12 50,12 57,7 60,17 63,12 70,12 74,5 77,19 80,12 100,12"
+            stroke="#00D4FF"
+            stroke-width="1.4"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            fill="none"
+            opacity=".85" />
+        </svg>
+        <div class="topbar-title">Espectro Sísmico <span>NBDS 2023</span> <span style="color: var(--amber); font-size: 10px">// mariocsi</span></div>
+        <div class="topbar-sub">CNBDS · Bolivia</div>
+      </div>
+
+    <div class="view">  
+      <!-- LEFT PANEL -->
+      <div class="panel-l">
+        <!-- 1. Amenaza -->
+        <div class="card">
+          <div class="card-hdr">Amenaza sísmica</div>
+          <div class="card-body">
+            <div class="field" style="flex-direction: row; align-items: center; gap: 12px">
+              <label>Aceleración máxima del suelo <span class="sym">S₀</span> [g]</label>
+              <div class="s0-row">
+                <input type="number" id="iS0" min="0.02" max="0.55" step="0.005" value="0.200" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Suelo -->
+        <div class="card">
+          <div class="card-hdr">Tipo de suelo &nbsp;<span style="color: var(--amber); font-size: 10px">(Tabla 1 &amp; 2)</span>
+          </div>
+          <div class="card-body">
+            <div class="field">
+              <label>Clasificación de suelo</label>
+              <select id="iSoil">
+                <option value="S0">S0 – Roca dura · Vs30 &gt; 1500 m/s</option>
+                <option value="S1">S1 – Roca · Vs30: 760–1500 m/s</option>
+                <option value="S2">S2 – Suelo muy rígido · Vs30: 370–760 m/s</option>
+                <option value="S3" selected>S3 – Suelo rígido · Vs30: 180–370 m/s</option>
+                <option value="S4">S4 – Suelo blando · Vs30 &lt; 180 m/s</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Factor importancia -->
+        <div class="card">
+          <div class="card-hdr">Factor de importancia <span class="sym" style="font-size: 10px; margin-left: 4px">Ie</span>&nbsp;<span
+              style="color: var(--amber); font-size: 10px"
+              >(Tabla 5)</span
+            >
+          </div>
+          <div class="card-body">
+            <div class="field">
+              <label>Tipo de estructura</label>
+              <select id="iType">
+                <option value="IV">Tipo IV · Ie = 1.5 — Hospitales, aeropuertos, esenciales</option>
+                <option value="III">Tipo III · Ie = 1.3 — Escuelas, estadios, mercados</option>
+                <option value="II" selected>Tipo II · Ie = 1.0 — Viviendas, oficinas, hoteles</option>
+                <option value="I">Tipo I · Ie = 1.0* — Provisorias / aisladas</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Sistema estructural -->
+        <div class="card">
+          <div class="card-hdr">Sistema estructural
+            <span style="color: var(--amber); font-size: 10px; margin-left: 4px">(Tabla 8)</span>
+          </div>
+          <div class="card-body">
+            <div class="field">
+              <label>Sistema resistente (R · Cd · Δ)</label>
+              <select id="iSys">
+                <optgroup label="─ Hormigón – Pórticos ─">
+                  <option value="8,5.5,0.012" selected>Pórticos Esp. RM · R=8 · Cd=5.5 · Δ=0.012</option>
+                  <option value="5,4.5,0.011">Pórticos Int. RM · R=5 · Cd=4.5 · Δ=0.011</option>
+                  <option value="3,2.5,0.010">Pórticos Ord. RM · R=3 · Cd=2.5 · Δ=0.010</option>
+                </optgroup>
+                <optgroup label="─ Hormigón – Losas/Entrepiso ─">
+                  <option value="2.5,1.8,0.007">Entrepiso s/viga + col. · R=2.5 · Cd=1.8 · Δ=0.007</option>
+                  <option value="4,3.6,0.008">Entrepiso s/viga + muros ord. · R=4 · Cd=3.6 · Δ=0.008</option>
+                  <option value="5.5,4.5,0.009">Entrepiso c/vigas pl. Dual esp. · R=5.5 · Cd=4.5 · Δ=0.009</option>
+                </optgroup>
+                <optgroup label="─ Hormigón – Muros ─">
+                  <option value="6,5,0.009">Muros Esp. · R=6 · Cd=5 · Δ=0.009</option>
+                  <option value="5,4.5,0.008">Muros Ord. · R=5 · Cd=4.5 · Δ=0.008</option>
+                  <option value="4,3.6,0.006">Muros ductilidad limitada · R=4 · Cd=3.6 · Δ=0.006</option>
+                </optgroup>
+                <optgroup label="─ Hormigón – Duales ─">
+                  <option value="7,5.5,0.010">Dual: Pórtico Esp + Muro Esp · R=7 · Cd=5.5 · Δ=0.010</option>
+                  <option value="8,8,0.010">Dual: Pórtico Esp + Muro Esp Acop. · R=8 · Cd=8 · Δ=0.010</option>
+                  <option value="6,5,0.009">Dual: Pórtico Esp + Muro Ord · R=6 · Cd=5 · Δ=0.009</option>
+                  <option value="6.5,5,0.009">Dual: Pórtico Int + Muro Esp · R=6.5 · Cd=5 · Δ=0.009</option>
+                  <option value="5.5,4.5,0.008">Dual: Pórtico Int + Muro Ord · R=5.5 · Cd=4.5 · Δ=0.008</option>
+                  <option value="4.5,4,0.007">Dual: Pórtico Ord + Muro Ord · R=4.5 · Cd=4 · Δ=0.007</option>
+                </optgroup>
+                <optgroup label="─ Acero ─">
+                  <option value="8,5.5,0.010">Acero – Pórticos Esp. RM · R=8 · Cd=5.5 · Δ=0.010</option>
+                  <option value="4.5,4,0.009">Acero – Pórticos Int. RM · R=4.5 · Cd=4 · Δ=0.009</option>
+                  <option value="3.5,3,0.008">Acero – Pórticos Ord. RM · R=3.5 · Cd=3 · Δ=0.008</option>
+                  <option value="6,5,0.009">Acero – Pórticos Esp. Concén. Arr. · R=6 · Cd=5 · Δ=0.009</option>
+                  <option value="3.25,3.25,0.008">Acero – Pórticos Ord. Concén. Arr. · R=3.25 · Cd=3.25 · Δ=0.008</option>
+                  <option value="8,4,0.010">Acero – Pórticos Excén. Arr. · R=8 · Cd=4 · Δ=0.010</option>
+                  <option value="3,2.5,0.007">Acero – Perfiles laminados frío · R=3 · Cd=2.5 · Δ=0.007</option>
+                </optgroup>
+                <optgroup label="─ Otros ─">
+                  <option value="3,2.5,0.004">Albañilería armada/confinada · R=3 · Cd=2.5 · Δ=0.004</option>
+                  <option value="5,4.5,0.007">Madera – esf. admisibles · R=5 · Cd=4.5 · Δ=0.007</option>
+                </optgroup>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. Tau -->
+        <div class="card">
+          <div class="card-hdr">Factor topográfico <span class="sym" style="font-size: 10px; margin-left: 4px">τ</span>&nbsp;<span
+              style="color: var(--amber); font-size: 10px"
+              >(Art. 7)</span
+            >
+          </div>
+          <div class="card-body">
+            <div class="tau-row">
+              <div class="tau-opt on" data-tau="1.00">τ = 1.00 -- Plano</div>
+              <div class="tau-opt" data-tau="calc">τ = Calc. -- 0.40–0.90</div>
+              <div class="tau-opt" data-tau="1.40">τ = 1.40 -- Cresta</div>
+            </div>
+            <div class="field" id="tauCW" style="display: none">
+              <label>Diferencia de pendientes (I − i)</label>
+              <input type="number" id="iTauD" min="0.40" max="0.90" step="0.01" value="0.60" placeholder="0.40 – 0.90" />
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. FIT -->
+        <div class="card">
+          <div class="card-hdr collapsible" id="fitHeader">
+            <span class="chevron">▼</span>
+            Irregularidades <span class="sym" style="font-size: 10px; margin-left: 4px">FIT</span>&nbsp;<span
+              style="color: var(--amber); font-size: 10px"
+              >(Art. 16 · Tablas 9 y 10)</span
+            >
+          </div>
+          <div class="card-body" id="fitBody" style="display: none">
+            <div style="font-size: 10px; color: var(--dim)">FIT = 1 − ΣIa − ΣIp ≥ 0.50. Marque las irregularidades presentes:</div>
+            <div class="fit-grid" id="fitGrid"></div>
+            <div id="fitDisplay" style="font-family: var(--mono); font-size: 11px; color: var(--muted); text-align: right">FIT = 1.000</div>
+          </div>
+        </div>
+
+        <!-- Buttons -->
+        <div style="display: flex; flex-direction: column; gap: 7px">
+          <button class="btn-calc" onclick="calculate()">▶ &nbsp;CALCULAR ESPECTRO</button>
+          <button class="btn-csv" id="btnCsv" onclick="downloadCsv()" disabled>⬇ &nbsp;DESCARGAR ESPECTRO EN CSV</button>
+        </div>
+
+        <!-- Results -->
+        <div class="card" id="resCard">
+          <div class="card-hdr"><span class="ico">📊</span>Resultados</div>
+          <div class="card-body" id="resBody">
+            <div class="placeholder-r">Presione "Calcular espectro"</div>
+          </div>
+        </div>
+      </div>
+      <!-- /panel-l -->
+      <!-- RIGHT PANEL -->
+      <div class="panel-r">
+        <div class="zone">
+          <div class="zone-lbl">Mapa probabilístico de amenaza sísmica – Bolivia · OSC · PSHBO 475 años</div>
+          <div class="map-viewer" id="mapViewer">
+            <img class="img_map" id="imgMap" src="mapa_de_amenaza_sismica.jpg" alt="Mapa de amenaza sísmica" draggable="false" />
+          </div>
+          <div class="map-controls">
+            <button class="map-btn" id="mapZoomIn" title="Acercar">+</button>
+            <button class="map-btn" id="mapZoomOut" title="Alejar">−</button>
+            <button class="map-btn" id="mapReset" title="Restablecer">⟲</button>
+            <span class="map-zoom-level" id="mapZoomLevel">100%</span>
+          </div>
+        </div>
+        <div class="zone chart-zone">
+          <div class="zone-lbl">Espectro de respuesta</div>
+          <canvas id="specChart"></canvas>
+        </div>
+      </div>
+    </div>
+    <!-- /app -->
+    <script src="NBDS2023_Espectro_1.js"></script>
+  </body>
+</html>
