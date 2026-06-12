@@ -312,7 +312,7 @@
               const cota = valorCalculado.toFixed(2);
               resultadoDiv.innerHTML = `S0: <span class="cota-valor">${cota}</span>`;
 
-              L.popup().setLatLng(event.latlng).setContent(`<b>S0:</b> ${cota}`).openOn(map);
+              L.popup().setLatLng(event.latlng).setContent(`<b>S0:</b> ${cota} <b>%</b>`).openOn(map);
             } else {
               resultadoDiv.innerHTML = `Cota: <span class="cota-valor" style="color:gray;">Sin datos (NoData)</span>`;
             }
