@@ -244,27 +244,27 @@
                 // Definimos colores basados en tu rango de 4 a 32
                 // RAMPA DE 16 COLORES (De 4 a 32, pasos de 1.75)
                 // AZULES (Zonas más bajas)
-                if (valor <= 5.75) return "#1a468a"; // Azul oscuro
-                if (valor <= 7.5) return "#2c7bb6"; // Azul medio
-                if (valor <= 9.25) return "#00a6ca"; // Azul claro / Turquesa
-                if (valor <= 11.0) return "#71b9a9"; // Celeste verdoso
+                if (valor <= 4) return "#1a468a"; // Azul oscuro
+                if (valor <= 6) return "#2c7bb6"; // Azul medio
+                if (valor <= 8) return "#00a6ca"; // Azul claro / Turquesa
+                if (valor <= 10) return "#71b9a9"; // Celeste verdoso
 
                 // VERDES (Zonas bajas-medias)
-                if (valor <= 12.75) return "#4ca974"; // Verde azulado
-                if (valor <= 14.5) return "#7ea245"; // Verde bosque
-                if (valor <= 16.25) return "#a2b72a"; // Verde claro
-                if (valor <= 18.0) return "#d2d42a"; // Verde limón
+                if (valor <= 12) return "#4ca974"; // Verde azulado
+                if (valor <= 14) return "#7ea245"; // Verde bosque
+                if (valor <= 16) return "#a2b72a"; // Verde claro
+                if (valor <= 18) return "#d2d42a"; // Verde limón
 
                 // AMARILLOS / NARANJAS (Zonas medias-altas)
-                if (valor <= 19.75) return "#fded17"; // Amarillo puro
-                if (valor <= 21.5) return "#f9c221"; // Amarillo oscuro
-                if (valor <= 23.25) return "#f59829"; // Naranja claro
-                if (valor <= 25.0) return "#ec682e"; // Naranja oscuro
+                if (valor <= 20) return "#fded17"; // Amarillo puro
+                if (valor <= 22) return "#f9c221"; // Amarillo oscuro
+                if (valor <= 24) return "#f59829"; // Naranja claro
+                if (valor <= 26) return "#ec682e"; // Naranja oscuro
 
                 // ROJOS (Zonas más altas)
-                if (valor <= 26.75) return "#e03530"; // Rojo claro
-                if (valor <= 28.5) return "#b61d2d"; // Rojo medio
-                if (valor <= 30.25) return "#8c0d26"; // Rojo oscuro
+                if (valor <= 28) return "#e03530"; // Rojo claro
+                if (valor <= 30) return "#b61d2d"; // Rojo medio
+                if (valor <= 32) return "#8c0d26"; // Rojo oscuro
                 return "#5c001a";
               },
             });
@@ -336,22 +336,22 @@
 
         // Definimos exactamente los mismos colores y límites que usamos en el TIFF
         const rangos = [
-          { limite: "4.00 - 5.75", color: "#1a468a" },
-          { limite: "5.75 - 7.50", color: "#2c7bb6" },
-          { limite: "7.50 - 9.25", color: "#00a6ca" },
-          { limite: "9.25 - 11.00", color: "#71b9a9" },
-          { limite: "11.00 - 12.75", color: "#4ca974" },
-          { limite: "12.75 - 14.50", color: "#7ea245" },
-          { limite: "14.50 - 16.25", color: "#a2b72a" },
-          { limite: "16.25 - 18.00", color: "#d2d42a" },
-          { limite: "18.00 - 19.75", color: "#fded17" },
-          { limite: "19.75 - 21.50", color: "#f9c221" },
-          { limite: "21.50 - 23.25", color: "#f59829" },
-          { limite: "23.25 - 25.00", color: "#ec682e" },
-          { limite: "25.00 - 26.75", color: "#e03530" },
-          { limite: "26.75 - 28.50", color: "#b61d2d" },
-          { limite: "28.50 - 30.25", color: "#8c0d26" },
-          { limite: "30.25 - 32.00", color: "#5c001a" },
+          { limite: "4.00", color: "#1a468a" },
+          { limite: "4 - 6", color: "#2c7bb6" },
+          { limite: "6 - 8", color: "#00a6ca" },
+          { limite: "8 - 10", color: "#71b9a9" },
+          { limite: "10 - 12", color: "#4ca974" },
+          { limite: "12 - 14", color: "#7ea245" },
+          { limite: "14 - 16", color: "#a2b72a" },
+          { limite: "16 - 18", color: "#d2d42a" },
+          { limite: "18 - 20", color: "#fded17" },
+          { limite: "20 - 22", color: "#f9c221" },
+          { limite: "22 - 24", color: "#f59829" },
+          { limite: "24 - 26", color: "#ec682e" },
+          { limite: "26 - 28", color: "#e03530" },
+          { limite: "28 - 30", color: "#b61d2d" },
+          { limite: "30 - 32", color: "#8c0d26" },
+          { limite: "32", color: "#5c001a" },
         ];
 
         // Generar el HTML interno con ciclos para cada cuadrito
